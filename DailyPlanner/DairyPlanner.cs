@@ -7,7 +7,7 @@ namespace DairyPlanner
 {
     class DairyPlanner
     {
-        private int index = 0;
+        private int indexNote = 0;
         private int selectionIndex;
         public Dictionary<int, Note> dictPlanner = new Dictionary<int, Note>();
         private string patternForName = "Name: ";
@@ -39,8 +39,8 @@ namespace DairyPlanner
             {
                 note = new Note(name, title, content);
             }
-            dictPlanner[index] = note;
-            ++index;
+            dictPlanner[indexNote] = note;
+            ++indexNote;
         }
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace DairyPlanner
                                             Convert.ToDateTime(dateMakeNote.Substring("DateMakeNote: ".Length)),
                                             Convert.ToDateTime(dateExecutionNote.Substring("DateExecutionNote: ".Length))
                                             );
-                            dictPlanner[index] = note;
-                            ++index;
+                            dictPlanner[indexNote] = note;
+                            ++indexNote;
                         }
                         catch (Exception)
                         {
@@ -158,16 +158,16 @@ namespace DairyPlanner
                             {
                                 if (note.DateMakeNote >= startRangeDate && note.DateMakeNote <= endRangeDate)
                                 {
-                                    dictPlanner[index] = note;
-                                    ++index;
+                                    dictPlanner[indexNote] = note;
+                                    ++indexNote;
                                 }
                             }
                             else
                             {
                                 if (note.DateExecutionNote >= startRangeDate && note.DateExecutionNote <= endRangeDate)
                                 {
-                                    dictPlanner[index] = note;
-                                    ++index;
+                                    dictPlanner[indexNote] = note;
+                                    ++indexNote;
                                 }
                             }
                         }
