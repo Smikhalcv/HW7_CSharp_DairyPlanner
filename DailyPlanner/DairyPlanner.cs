@@ -53,7 +53,7 @@ namespace DairyPlanner
             string path = Console.ReadLine();
             if (!File.Exists(path))
             {
-                path = null;
+                path = "";
                 Console.WriteLine("Неверный путь к файлу!");
             }
             return path;
@@ -65,17 +65,17 @@ namespace DairyPlanner
         public void AddNoteFromFile()
         {
             string path = CheckExistsFile();
-            if (path != null)
+            if (path != "")
             {
                 using (StreamReader readFile = new StreamReader(path))
                 {
                     while (!readFile.EndOfStream)
                     {
-                        string name = readFile.ReadLine();
-                        string title = readFile.ReadLine();
-                        string content = readFile.ReadLine();
-                        string dateMakeNote = readFile.ReadLine();
-                        string dateExecutionNote = readFile.ReadLine();
+                        string name = readFile.ReadLine()!;
+                        string title = readFile.ReadLine()!;
+                        string content = readFile.ReadLine()!;
+                        string dateMakeNote = readFile.ReadLine()!;
+                        string dateExecutionNote = readFile.ReadLine()!;
                         try
                         {
                             Note note = new Note(name.Substring("Name: ".Length),
@@ -135,17 +135,17 @@ namespace DairyPlanner
             DateTime startRangeDate = GetDateFromConsole();
             Console.WriteLine("Конец диапозона -");
             DateTime endRangeDate = GetDateFromConsole();
-            if (path != null)
+            if (path != "")
             {
                 using (StreamReader readFile = new StreamReader(path))
                 {
                     while (!readFile.EndOfStream)
                     {
-                        string name = readFile.ReadLine();
-                        string title = readFile.ReadLine();
-                        string content = readFile.ReadLine();
-                        string dateMakeNote = readFile.ReadLine();
-                        string dateExecutionNote = readFile.ReadLine();
+                        string name = readFile.ReadLine()!;
+                        string title = readFile.ReadLine()!;
+                        string content = readFile.ReadLine()!;
+                        string dateMakeNote = readFile.ReadLine()!;
+                        string dateExecutionNote = readFile.ReadLine()!;
                         try
                         {
                             Note note = new Note(name.Substring(patternForName.Length),
